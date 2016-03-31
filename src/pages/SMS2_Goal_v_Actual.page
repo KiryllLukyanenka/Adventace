@@ -1,0 +1,446 @@
+<apex:page controller="SMS2_Goal_v_Actual" tabStyle="Goal_Vs_Actual_SMS2__tab">
+<script type="text/javascript" src="https://www.google.com/jsapi"></script> 
+<style>
+
+    .hidden{
+    
+        display:none;
+    } 
+
+
+.odd {
+    background-color: #FFFFFF;
+
+}
+
+.even {
+
+    background-color: #e4e9f5;
+
+}
+.ttle {
+    font-size: 18px;
+    font-weight: bold;
+}
+.loading{
+    border-right-color: #CCCCCC;
+    border-bottom-color: #CCCCCC;
+    border-left-color: #CCCCCC;
+    border-right-style: solid;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    background-color: #FFFFAE;
+}
+.hov{
+border-bottom-color: #333333;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+
+}
+
+.hnd {
+ cursor:hand;
+}
+.tableClass {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    border-top-color: #333333;
+    font-style: normal;
+    border-right-color: #333333;
+    border-bottom-color: #333333;
+    border-left-color: #333333;
+    border-right-style: solid;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+}
+
+.hdr {
+    background-color:#CCCCCC;
+    color: #000000;
+    font-weight: bold;
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+}
+</style>
+<script type="text/javascript"> 
+      google.load("visualization", "1", {packages:["barchart"]}); 
+      google.setOnLoadCallback(drawChart); 
+    
+      function drawChart_noc() { 
+        
+        var graphData = '{!NocGraphData}';
+             
+        /// NEED TO CHECK HERE IF IT
+        /// IS ONE LINE OF DATA OR MORE
+        /// WILL BE SPLIT BY >!<
+        var fullColorArray = new Array();
+        
+        
+        if(graphData.indexOf('>!<') > 0) {
+        
+            var graphLinesSplit = graphData.split('>!<');
+
+            var data = new google.visualization.DataTable(); 
+            data.addColumn('string', 'Profile'); 
+            data.addColumn('number', 'Actual'); 
+            data.addColumn('number', 'Goal'); 
+            data.addRows((graphLinesSplit.length-1)); 
+            var graphHeight= (graphLinesSplit.length-1) *50;
+
+            for (i=1;i<graphLinesSplit.length;i++) {
+            
+                var graphDataSplit = graphLinesSplit[i].split('|');
+                            
+                // PULL OUT BAD CHAR
+                var lab = graphDataSplit[0].replace('[','');
+                lab= lab.replace('>!<','');
+                
+                data.setValue((i-1), 0, lab); 
+                data.setValue((i-1), 1, parseFloat(graphDataSplit[1],10)); 
+                data.setValue((i-1), 2, parseFloat(graphDataSplit[2],10)); 
+            
+                var colorArray = new Array();
+                if( parseFloat(graphDataSplit[1],10) >= parseFloat(graphDataSplit[2],10)) {
+                    
+                //  alert('E:' + parseFloat(graphDataSplit[1],10) +'-'+ parseFloat(graphDataSplit[2],10));
+                    colorArray.push('#00CC00');
+                
+                } else {
+                    
+                    //alert('L:' + parseFloat(graphDataSplit[1],10) +'-'+ parseFloat(graphDataSplit[2],10));    
+                    colorArray.push('#CC0000');
+                
+                }   
+                colorArray.push('#0000FF');
+                fullColorArray.push(colorArray);
+            }
+            
+        } else {
+        
+            
+            var data = new google.visualization.DataTable(); 
+            data.addColumn('string', 'Profile'); 
+            data.addColumn('number', 'Actual'); 
+            data.addColumn('number', 'Goal');  
+            data.addRows(1); 
+           
+            var graphDataSplit = graphData.split('|');
+            
+            // PULL OUT BAD CHAR
+            var lab = graphDataSplit[0].replace('[','');
+            lab= lab.replace('>!<','');
+           
+            data.setValue(0, 0, lab); 
+            data.setValue(0, 1, parseFloat(graphDataSplit[1],10)); 
+            data.setValue(0, 2, parseFloat(graphDataSplit[2],10)); 
+            var graphHeight= 100;
+            var colorArray = new Array();
+            if( parseFloat(graphDataSplit[1],10) >=parseFloat(graphDataSplit[2],10)) {
+            
+                colorArray.push('#00CC00');
+          
+            } else {
+                
+                colorArray.push('#CC0000');
+            }   
+            
+            colorArray.push('#0000FF');
+            fullColorArray.push(colorArray);
+        }
+        
+    
+    
+        var chart = new google.visualization.BarChart(document.getElementById('noc_div')); 
+      chart.draw(data, {width: 600, min:0,height: graphHeight, is3D: true,legendBackgroundColor:{stroke:'black', fill:'#FFFFFF', strokeSize: 1}, backgroundColor:{stroke:'#f3f3ec', fill:'#f3f3ec', strokeSize: 0}}); 
+            
+      }
+    function drawChart_actual() { 
+        
+        var graphData = '{!ActualGraphData}';
+       
+        /// NEED TO CHECK HERE IF IT
+        /// IS ONE LINE OF DATA OR MORE
+        /// WILL BE SPLIT BY >!<
+        var fullColorArray = new Array();
+        
+        
+        if(graphData.indexOf('>!<') > 0) {
+        
+            var graphLinesSplit = graphData.split('>!<');
+
+            var data = new google.visualization.DataTable(); 
+            data.addColumn('string', 'Profile'); 
+            data.addColumn('number', 'Actual'); 
+            data.addColumn('number', 'Goal'); 
+            data.addRows((graphLinesSplit.length-1)); 
+            var graphHeight= (graphLinesSplit.length-1) *50;
+
+            for (i=1;i<graphLinesSplit.length;i++) {
+            
+                var graphDataSplit = graphLinesSplit[i].split('|');
+                            
+                // PULL OUT BAD CHAR
+                var lab = graphDataSplit[0].replace('[','');
+                lab= lab.replace('>!<','');
+                
+                data.setValue((i-1), 0, lab); 
+                data.setValue((i-1), 1, parseFloat(graphDataSplit[1],10)); 
+                data.setValue((i-1), 2, parseFloat(graphDataSplit[2],10)); 
+            
+                var colorArray = new Array();
+                if( parseFloat(graphDataSplit[1],10) >= parseFloat(graphDataSplit[2],10)) {
+                    
+                //  alert('E:' + parseFloat(graphDataSplit[1],10) +'-'+ parseFloat(graphDataSplit[2],10));
+                    colorArray.push('#00CC00');
+                
+                } else {
+                    
+                    //alert('L:' + parseFloat(graphDataSplit[1],10) +'-'+ parseFloat(graphDataSplit[2],10));    
+                    colorArray.push('#CC0000');
+                
+                }   
+                colorArray.push('#0000FF');
+                fullColorArray.push(colorArray);
+            }
+            
+        } else {
+        
+            
+            var data = new google.visualization.DataTable(); 
+            data.addColumn('string', 'Profile'); 
+            data.addColumn('number', 'Actual'); 
+            data.addColumn('number', 'Goal');  
+            data.addRows(1); 
+           
+            var graphDataSplit = graphData.split('|');
+            
+            // PULL OUT BAD CHAR
+            var lab = graphDataSplit[0].replace('[','');
+            lab= lab.replace('>!<','');
+           
+            data.setValue(0, 0, lab); 
+            data.setValue(0, 1, parseFloat(graphDataSplit[1],10)); 
+            data.setValue(0, 2, parseFloat(graphDataSplit[2],10)); 
+            var graphHeight= 100;
+            var colorArray = new Array();
+            if( parseFloat(graphDataSplit[1],10) >=parseFloat(graphDataSplit[2],10)) {
+            
+                colorArray.push('#00CC00');
+          
+            } else {
+                
+                colorArray.push('#CC0000');
+            }   
+            
+            colorArray.push('#0000FF');
+            fullColorArray.push(colorArray);
+        }
+        
+    
+    
+        var chart = new google.visualization.BarChart(document.getElementById('actual_div')); 
+       chart.draw(data, {width: 600, min:0,height: graphHeight, is3D: true,legendBackgroundColor:{stroke:'black', fill:'#FFFFFF', strokeSize: 1}, backgroundColor:{stroke:'#f3f3ec', fill:'#f3f3ec', strokeSize: 0}}); 
+           drawChart_noc();    
+      }
+      function drawChart() { 
+        
+        var graphData = '{!abGraphData}';
+      
+        /// NEED TO CHECK HERE IF IT
+        /// IS ONE LINE OF DATA OR MORE
+        /// WILL BE SPLIT BY >!<
+        
+        if(graphData.indexOf('>!<') > 0) {
+        
+            var graphLinesSplit = graphData.split('>!<');
+
+            var data = new google.visualization.DataTable(); 
+            data.addColumn('string', 'Profile'); 
+            data.addColumn('number', 'Actual'); 
+            data.addColumn('number', 'Goal'); 
+            data.addRows((graphLinesSplit.length-1)); 
+            var graphHeight= (graphLinesSplit.length-1) *50;
+
+            for (i=1;i<graphLinesSplit.length;i++) {
+            
+                var graphDataSplit = graphLinesSplit[i].split('|');
+                            
+                // PULL OUT BAD CHAR
+                var lab = graphDataSplit[0].replace('[','');
+                lab= lab.replace('>!<','');
+                
+                data.setValue((i-1), 0, lab); 
+                data.setValue((i-1), 1, parseFloat(graphDataSplit[3],10)); 
+                data.setValue((i-1), 2, parseFloat(graphDataSplit[4],10)); 
+            }
+            
+        
+        } else {
+        
+            
+            var data = new google.visualization.DataTable(); 
+            data.addColumn('string', 'Profile'); 
+            data.addColumn('number', 'Actual'); 
+            data.addColumn('number', 'Goal');  
+            data.addRows(1); 
+           
+            var graphDataSplit = graphData.split('|');
+            
+            // PULL OUT BAD CHAR
+            var lab = graphDataSplit[0].replace('[','');
+            lab= lab.replace('>!<','');
+           
+            data.setValue(0, 0, lab); 
+            data.setValue(0, 1, parseFloat(graphDataSplit[3],10)); 
+            data.setValue(0, 2, parseFloat(graphDataSplit[4],10)); 
+            var graphHeight= 100;
+        }
+ 
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div')); 
+        chart.draw(data, {width: 600, min:0,height: graphHeight, is3D: true,legendBackgroundColor:{stroke:'black', fill:'#FFFFFF', strokeSize: 1}, backgroundColor:{stroke:'#f3f3ec', fill:'#f3f3ec', strokeSize: 0}}); 
+        drawChart_actual();
+      } 
+    </script> 
+
+<h1></h1> 
+
+
+
+        <apex:repeat value="{!UsersQuery}" var="sk" id="db">
+            <div class="hidden">{!sk.firstName} {!sk.lastName}</div>
+        </apex:repeat>
+
+       <apex:form >
+        <apex:pageBlock title="Performance Dashboards" mode="edit">
+            <apex:pageBlockButtons >
+                <!-- <apex:commandButton action="{!NULL}" value="Refresh Data" /> -->
+                <input type="button" value="Refresh Data" onClick="window.location.reload();" class="btn" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="A/B Ratio" columns="1"> 
+            <apex:outputPanel >
+                <table border="0" cellpadding="10" width="100%">
+                    <tr>
+                         
+                        <td align="left" valign="middle">
+                            <div><Strong>Help Video:</Strong> <a href="http://c0384196.cdn2.cloudfiles.rackspacecloud.com/ABRatio.mov" target="_blank">A/B Ratio </a></div><br/>
+                                <!-- <analytics:reportChart developerName="ADVSMS__Adventace_A_B_Ratio_Summary" /> -->
+                                
+                                <apex:dataTable width="400px" value="{!tblData}" var="dt" id="theTable" rowClasses="odd,even" border="1" cellpadding="5" headerClass="hdr" styleClass="tableClass">
+                                    <apex:column >
+                                        <apex:facet name="header">Role/User</apex:facet>
+                                        <a class="{!dt.rendLink}" href="/apex/SMS2_Goal_v_Actual{!dt.roleLink}">{!dt.roleName}</a>
+                                        <span class="{!dt.rendName}">{!dt.roleName}</span>
+                                    </apex:column> 
+                                    <apex:column >
+                                        <apex:facet name="header">A Opportunities</apex:facet>
+                                        <apex:outputText value="{!dt.a}"/>
+                                    </apex:column>
+                                    <apex:column >
+                                         <apex:facet name="header">B Opportunities</apex:facet>
+                                        <apex:outputText value="{!dt.b}"/>
+                                    </apex:column>
+                                    <apex:column >
+                                        <apex:facet name="header">A/B Ratio Goal</apex:facet>
+                                        <apex:outputText value="{!dt.ABRatioGoal}"/>
+                                    </apex:column>
+                                    <apex:column >
+                                        <apex:facet name="header">A/B Ratio Actual</apex:facet>                 
+                                        <apex:outputText value="{!dt.ABRatioActual}"/>
+                                    </apex:column>
+                                </apex:dataTable>
+                        </td>
+                        <td  align="left" width="90%">
+            
+                            <div id="chart_div"></div> 
+                        </td>
+                    </tr>
+                </table>
+            </apex:outputPanel>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="$A" columns="1">
+            <apex:outputPanel >
+            <table border="0" cellpadding="10" width="100%">
+                <tr>
+                    
+                    <td align="left" valign="middle">
+                        <!-- <analytics:reportChart developerName="ADVSMS__Adventace_A_Summary" /> -->
+                        <apex:dataTable width="400px" value="{!tableActualGraphData}" var="dt" id="t" rowClasses="odd,even" border="1" cellpadding="5" headerClass="hdr" styleClass="tableClass">
+                            <apex:column >
+                                <apex:facet name="header">Role/User</apex:facet>
+                                <a class="{!dt.rendLink}" href="/apex/SMS2_Goal_v_Actual{!dt.roleLink}">{!dt.roleName}</a>
+                                <span class="{!dt.rendName}">{!dt.roleName}</span>
+                            </apex:column> 
+                            <apex:column >
+                                 <apex:facet name="header">$A Goal</apex:facet>
+                        
+                                <apex:outputText value="${0, number, ###,###,###,###.00}">
+                                <apex:param value="{!dt.aDollarGoal}"/>
+                            </apex:outputText>
+                                
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header">$A Actual</apex:facet>                    
+                                <apex:outputText value="${0, number, ###,###,###,###.00}">
+                                    <apex:param value="{!dt.aDollarActuals}"/>
+                                </apex:outputText>
+                            </apex:column>
+                        </apex:dataTable>
+                    </td>
+                    <td  align="left" width="90%">
+                
+                        <div id="actual_div"></div>
+                    </td>
+                </tr>
+            </table>
+        </apex:outputPanel>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection title="NOC" columns="1">
+            <apex:outputPanel > 
+                <table border="0" cellpadding="10" width="100%">
+                    <tr>
+                        <td align="left" valign="middle">
+                            <!-- <analytics:reportChart developerName="ADVSMS__Adventace_NOC_Summary" /> -->
+                            <apex:dataTable width="400px" value="{!tableNoclGraphData}" var="dt" id="t3" rowClasses="odd,even" border="1" cellpadding="5" headerClass="hdr"  styleClass="tableClass">
+                                <apex:column >
+                                    <apex:facet name="header">Role/User</apex:facet>
+                                    <a class="{!dt.rendLink}" href="/apex/SMS2_Goal_v_Actual{!dt.roleLink}">{!dt.roleName}</a>
+                                    <span class="{!dt.rendName}">{!dt.roleName}</span>
+                                </apex:column> 
+                                <apex:column >
+                                    <apex:facet name="header">NOC Goal</apex:facet>                 
+                                    <apex:outputText value="{!dt.nocGoal}"/>
+                                </apex:column>
+                                <apex:column >
+                                     <apex:facet name="header">NOC Actual</apex:facet>
+                                    <apex:outputText value="{!dt.nocActual}"/>
+                                </apex:column>
+                                
+                            </apex:dataTable>
+                        </td>
+                        <td  align="left" width="90%">
+
+                            <div id="noc_div"></div>
+                        </td>
+                    </tr>
+                </table>
+            </apex:outputPanel>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+
+</apex:page>

@@ -1,0 +1,168 @@
+<apex:page standardController="TACE_Pipeline_Balancing_Algorithm__c">
+    <style> 
+body {
+    background-color: #f3f3ec;
+} 
+
+.style1 {color: #FFFFFF;}
+</style>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.fusionCharts,'/FusionCharts/FusionChartsFree/Contents/Style.css')}" />
+    <script src="{!URLFOR($Resource.fusionCharts,'/FusionCharts/FusionChartsFree/JSClass/FusionCharts.js')}" type="text/javascript" />
+    <div align="right"><a href="#" onclick="javascript:window.open('http://adventace.com/adventace-company/adventace-sms-pipeline-analysis-help','olcwhatispaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=800, height=600');">Pipeline Analysis Help</a>
+</div><br/>
+    <table width="98%" border="0" cellspacing="0" cellpadding="3" align="center">
+  <tr> 
+    <td>
+    
+        <table width="100%" border="1" cellspacing="0" cellpadding="2" bordercolor="#000000">
+  <tr>
+    <td bgcolor="#5e82a3" colspan="1"><div align="center" class="style1"><strong>Stage</strong></div></td>
+    <td bgcolor="#5e82a3"><div align="center" class="style1"><strong>Goal</strong></div></td>
+    <td bgcolor="#5e82a3"><div align="center" class="style1"><strong>Actual</strong></div></td>
+    <td bgcolor="#5e82a3"><div align="center" class="style1"><strong>%</strong></div></td>
+  </tr>
+  <tr>
+
+    <td><div align="center"><strong>C</strong></div></td>
+    <td><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Stage_C_Goal__c}" /></div></td>
+    <td><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Stage_C_Actual__c}" /></div></td>
+    <td><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Stage_C_Percent_Goal__c}" /></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><strong>B</strong></div></td>
+    <td><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Stage_B_Goal__c}" /></div></td>
+    <td><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Stage_B_Actual__c}" /></div></td>
+    <td><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Stage_B_percent_goal__c}" /></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><strong>A</strong></div></td>
+    <td><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.A_Required__c}" /></div></td>
+    <td><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Stage_A_Actual__c}"/></div></td>
+    <td><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Stage_A_Percent_Goal__c}" /></div></td>
+  </tr>
+  <tr>
+    <td><div align="center"><strong>NL</strong></div></td>
+    <td><div align="center">0</div></td>
+    <td><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.NL_Actual__c}" /></div></td>
+    <td><div align="center">N/A</div></td>
+  </tr>
+  <tr>
+
+    <td><div align="center"><strong>NW & W</strong></div></td>
+    <td><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.NW_W_Goal__c}" /></div></td>
+    <td><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.NW_and_W_Actual__c}" /></div></td>
+    <td><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.NW_and_W_Goal__c}" /></div></td>
+  </tr>
+</table>
+<br/>
+
+    </td>
+    <td valign="top" class="text" align="center"> <div id="chartdiv" align="center"> 
+       </div>
+      <script type="text/javascript">
+            var red = 'CC0000';
+            var yellow = 'FFD700';
+            var green = '008000';
+            
+            var cColorPer = '{!JSENCODE(TEXT(TACE_Pipeline_Balancing_Algorithm__c.Stage_C_Percent_Goal__c))}';
+            var cColor = 'FF0000';
+            
+            if (cColorPer >= 100) {
+                
+                cColor = green;
+                
+            } else if(cColorPer >74) {
+            
+                cColor = yellow;
+                
+            } else{
+            
+                cColor = red;
+            }
+            
+            var bColorPer = '{!JSENCODE(TEXT(TACE_Pipeline_Balancing_Algorithm__c.Stage_B_percent_goal__c))}';
+            var bColor = 'FF0000';
+            
+            if (bColorPer > 125) {
+                
+                bColor = red;
+                
+            } else if(bColorPer >100) {
+            
+                bColor = yellow;
+                
+            } else{
+            
+                bColor = green;
+            }
+            
+            var aColorPer = '{!JSENCODE(TEXT(TACE_Pipeline_Balancing_Algorithm__c.Stage_A_Percent_Goal__c))}';
+            var aColor = 'FF0000';
+            
+            if (aColorPer >= 100) {
+                
+                aColor = green;
+                
+            } else if(aColorPer >74) {
+            
+                aColor = yellow;
+                
+            } else{
+            
+                aColor = red;
+            }
+            
+            var wColorPer = '{!JSENCODE(TEXT(TACE_Pipeline_Balancing_Algorithm__c.NW_and_W_Goal__c))}';
+            var wColor = 'FF0000';
+            
+            if (wColorPer >= 100) {
+                
+                wColor = green;
+                
+            } else if(wColorPer >74) {
+            
+                wColor = yellow;
+                
+            } else{
+            
+                wColor = red;
+            }
+            var nColorPer = '{!JSENCODE(TEXT(TACE_Pipeline_Balancing_Algorithm__c.NL_Actual__c))}';
+            var nColor = 'FF0000';
+            
+            if (nColorPer == 0) {
+                
+                nColor = green;
+                
+            } else if(nColorPer >1) {
+            
+                nColor = red;
+                
+            } else{
+            
+                nColor = red;
+            }
+            
+            
+           var xm = ''; 
+           xm += '<chart bgColor="FFFFFF" showValues="0" is2D="1" slicingDistance="4" decimalPrecision="0">';
+           xm += '<set name="NW & W" value="25" color="'+wColor+'" alpha="85"/>';
+           xm += '<set name="NL" value="25" color="'+nColor+'"alpha="85"/>';
+           xm += '<set name="A" value="25" color="'+aColor+'" alpha="85"/>';
+           xm += '<set name="B" value="25" color="'+bColor+'" alpha="85"/>';
+           xm += '<set name="C " value="25" color="'+cColor+'" alpha="85"/>';
+           xm += '</chart>';
+
+           var chart = new FusionCharts("{!URLFOR($Resource.fusionCharts,'/FusionCharts/FusionChartsFree/Charts/FCF_Funnel.swf')}", "ChartId", "250", "250");
+           chart.setDataXML(xm);           
+           chart.render("chartdiv");
+          
+        </script> </td> 
+  </tr>
+  <tr>
+    <td valign="top" class="text" align="center">&nbsp;</td>
+  </tr>
+
+</table>
+</apex:page>

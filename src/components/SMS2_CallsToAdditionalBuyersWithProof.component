@@ -1,0 +1,75 @@
+<apex:component access="global" controller="SMS2_email">
+    <apex:attribute name="oppId" description="asd" type="String" assignTo="{!impactedJobTitleId}"/>
+        <style>
+
+body{
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+
+}
+</style>
+<!-- Create The High Performance Sales Environment®  • ©2010 • Adventace® LLC • All rights reserved • Confidential -->
+<p>Dear {!impactedJobTitle.Contact__r.firstName}:</p>
+<p>I appreciated our conversation and hope that you too felt it was productive.  The purpose of this letter is to summarize the key points from our discussion and to provide you with the Action Plan that {!PowerPromoter.Contact__r.firstName} {!PowerPromoter.Contact__r.lastName} and I felt we should follow for your subsequent analysis of us. </p>
+<p>Provided in the table below is my understanding of your issue, the causes for it, the capabilities required by you to resolve it, and the solutions we have that are designed to provide you with those capabilities.</p>
+<p><table border="1" bordercolor="#000000" width="600px" cellpadding="5" cellspacing="0">
+    <tr>
+        <td colspan="3" align="center" style="background: #EDD681"><strong>Issue: {!impactedJobTitle.Critical_Business_Issue__r.Name}</strong>
+        </td>
+    </tr> 
+    <tr>
+        <td align="center" style="background:  #EDD681"><strong>Causes</strong>
+        </td>
+        <td align="center" style="background:  #EDD681"><strong>
+        Capabilities Required</strong>
+        </td>
+          <td align="center" style="background:  #EDD681"><strong>
+        Proof</strong>
+        </td>
+    </tr>
+    <apex:repeat value="{!OQ}" var="opq" id="db3">  
+        <apex:repeat value="{!opq.Opportunity_Qualifiers__r}" var="oppQueStep" id="db2">    
+        <tr>
+
+            <td style="background:  #FCF8ED"><apex:outputtext value="{!oppQueStep.Cause_RTF__c}" escape="false" /></td>
+            <td style="background:  #FCF8ED"><apex:outputtext value="{!oppQueStep.Capabilities_RTF__c}" escape="false" /></td>
+            <td style="background:  #FCF8ED"><apex:outputtext value="{!oppQueStep.Proof_RTF__c}" escape="false" /></td>        </tr>
+        </apex:repeat>
+    </apex:repeat>
+</table>
+</p>
+<p>You believe that if you had these capabilities you would be able to solve your issue. </p>
+<p>We agreed that we should have a follow-up meeting on, which I will coordinate, to demonstrate how the solutions outlined above will provide you with the capabilities you need.  Assuming we do so to your satisfaction, I would also like to then review the Action Plan that {!PowerPromoter.Contact__r.firstName} {!PowerPromoter.Contact__r.lastName} and I have put in place.</p>
+<p>Best regards,<br/>
+{!NameOfSender}</p>
+<br/>
+<table border="1"  bordercolor="#000000" width="600px" cellpadding="5" cellspacing="0">
+    <tr>
+        <td colspan="5" align="center" style="background:  #EDD681">
+            <strong>Action Plan</strong>
+    </td>
+    </tr>
+    <tr>
+        <td align="center" style="background:  #EDD681"><strong>Objective</strong></td>
+        <td align="center" style="background:  #EDD681"><strong>Dates</strong></td>
+        <td align="center" style="background:  #EDD681"><strong>Action Items</strong></td>
+        <td align="center" style="background:  #EDD681"><strong>Key Decision Point</strong></td>
+        <td align="center" style="background:  #EDD681"><strong>Completed</strong></td>
+    </tr>
+  
+    <apex:repeat value="{!tableData.TableRoll}" var="app" id="db" > 
+        <apex:variable value="{!1}" var="rowNum"/>
+         <apex:repeat value="{!app.Steps}" var="steps" id="db" >   
+               <tr> 
+                    <apex:outputPanel rendered="{!IF(rowNum == 1, true, false)}">
+                    <td style="background:  #FCF8ED" rowspan="{!app.objCount}" align="center">{!app.objective}</td>
+                    </apex:outputPanel>
+                    <td style="background:  #FCF8ED" align="center">{!MONTH(steps.Date__c)}/{!DAY(steps.Date__c)}/{!YEAR(steps.Date__c)}</td>
+                    <td style="background:  #FCF8ED" align="center">{!steps.Action_Item__c}</td>
+                    <td style="background:  #FCF8ED" align="center">&nbsp;<apex:outputPanel rendered="{!steps.Key_Decision_Point__c}">*</apex:outputPanel></td>
+                    <td style="background:  #FCF8ED" align="center">&nbsp;<apex:outputPanel rendered="{!steps.Completed__c}">*</apex:outputPanel></td>
+               </tr>
+                <apex:variable var="rowNum" value="{!rowNum + 1}"/>
+          </apex:repeat>
+    </apex:repeat>
+</table>
+</apex:component>

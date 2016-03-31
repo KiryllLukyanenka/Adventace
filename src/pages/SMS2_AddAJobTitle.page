@@ -1,0 +1,29 @@
+<apex:page standardController="Job_Title__c" extensions="SMS2_addAJobTitlePage">
+ 	<style>
+	 
+	 	.er{ color: red; font-weight: strong;}
+	 	
+    </style>
+	 
+ 	<apex:outputPanel id="er" styleClass="er">
+	 				<apex:messages />
+	 			</apex:outputPanel>
+ 	<apex:form >
+		<apex:pageBlock mode="edit">
+            <apex:pageBlockButtons >
+               <apex:commandButton action="{!save2}" value="Save" /> <apex:commandButton action="{!cancel2}" value="Cancel" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Add a Job Title" columns="2">
+                <apex:pageBlockSectionItem >
+					Title: <apex:inputText value="{!Job_Title__c.Name}" />
+	       		</apex:pageBlockSectionItem> 
+				<apex:pageBlockSectionItem >
+					Request Addition to Corporate List: <apex:inputCheckbox value="{!Job_Title__c.Request_Addition_to_Corporate_List__c}" />
+	       		</apex:pageBlockSectionItem> 
+                <apex:pageBlockSectionItem >
+					Vertical: <apex:inputField value="{!Job_Title__c.Vertical__c}" />
+	       		</apex:pageBlockSectionItem> 
+	       	</apex:pageBlockSection> 
+	     </apex:pageBlock>
+	 </apex:form>
+</apex:page>

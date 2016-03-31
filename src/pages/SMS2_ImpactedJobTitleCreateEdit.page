@@ -1,0 +1,131 @@
+<apex:page standardController="Impacted_Job_Title__c" extensions="SMS2_ImpagtedJobTitleCreateEdit">
+	<style>
+	 
+		.er{ color: red; font-weight: strong;}
+	 	
+	</style>
+	  
+	<apex:form >
+		<apex:actionFunction name="loadCauses" action="{!loadCBI}" rerender="cbi, dbg, er" />
+		<apex:actionFunction name="loadTitles" action="{!loadJT}" rerender="dbg, cbi, er" />
+
+		<apex:outputPanel id="er" styleClass="er"> 
+			<apex:messages />
+		</apex:outputPanel>
+
+        <apex:pageBlock mode="edit">
+            <apex:pageBlockButtons >
+               	<apex:commandbutton value="Save" rerender="dbg,er" action="{!save2}" />
+				<apex:commandbutton value="Cancel" action="{!cancel2}" />					
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection title="Job Title" columns="2"  id="cbi">
+                <apex:pageBlockSectionItem rendered="{!bolShowVertical}">
+	                <span>Vertical</span>
+	                <apex:selectList onChange="loadTitles()" 
+	                				value="{!selVertical}" multiselect="false" size="1">
+	            		<apex:selectOptions value="{!lstVerticalOptions}"/>
+	        		</apex:selectList>
+	       		</apex:pageBlockSectionItem>
+	       		<apex:pageBlockSectionItem rendered="{!bolShowVertical}">&nbsp;
+	       		</apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem id="pbsiTitle">
+	                <span>Title</span>
+	                <apex:selectList onChange="loadCauses()" 
+	                				value="{!SelJobTitle}" multiselect="false" size="1">
+	            			<apex:selectOptions value="{!lstJTOptions}"/>
+	        		</apex:selectList>
+	       		</apex:pageBlockSectionItem>
+	       		<apex:pageBlockSectionItem >
+	       				<apex:commandLink value="Add a title" rendered="{!bolShowNewTitleLink}" 
+	       									action="{!addAJobTitle}"  id="theCommandLink"/>
+	       		</apex:pageBlockSectionItem>
+
+	       		<apex:pageBlockSectionItem >&nbsp;
+	       		</apex:pageBlockSectionItem>
+	       		<apex:pageBlockSectionItem >&nbsp;  
+	       		</apex:pageBlockSectionItem> 
+
+	       		<apex:pageBlockSectionItem >
+		            <span>Critical Business Issue</span>
+		            <apex:selectList value="{!selCBI}" multiselect="false" size="1">
+			           	<apex:selectOptions value="{!availCBI}"/>
+			        </apex:selectList>
+		   		</apex:pageBlockSectionItem>
+		   		<apex:pageBlockSectionItem >
+	       			<apex:commandLink value="Add a Critical Business Issue" rendered="{!bolShowNewCBILink}"
+	       								action="{!addACBI}" id="theCommandLink2"/>
+	       		</apex:pageBlockSectionItem>
+	       		<apex:pageBlockSectionItem >&nbsp;	       			
+	       		</apex:pageBlockSectionItem>
+	       		<apex:pageBlockSectionItem >&nbsp;	       			
+           		</apex:pageBlockSectionItem>       
+		   		<apex:pageBlockSectionItem >
+		   			<span>Impacts 1</span>
+		          	<apex:selectList value="{!causeJTI}" multiselect="false" size="1">
+			           	<apex:selectOptions value="{!availJTI}"/>
+			        </apex:selectList>
+		   		</apex:pageBlockSectionItem> 
+		   			<apex:pageBlockSectionItem >&nbsp;
+	       		</apex:pageBlockSectionItem> 
+		   		<apex:pageBlockSectionItem >
+		   			<span>Impacts 2</span>
+		          	<apex:selectList value="{!causeJTI2}" multiselect="false" size="1">
+			           	<apex:selectOptions value="{!availJTI}"/>
+			        </apex:selectList>
+		   		</apex:pageBlockSectionItem>  
+		   		<apex:pageBlockSectionItem >&nbsp;
+	       		</apex:pageBlockSectionItem> 
+		   		<apex:pageBlockSectionItem >
+		   			<span>Impacts 3</span>
+		          	<apex:selectList value="{!causeJTI3}" multiselect="false" size="1">
+			           	<apex:selectOptions value="{!availJTI}"/>
+			        </apex:selectList>
+		   		</apex:pageBlockSectionItem> 
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Other" columns="2">
+	              <apex:pageBlockSectionItem >
+	              		<span>Type of buyer</span>
+		          		<apex:inputField value="{!itj.Type_of_buyer__c}" />
+		          </apex:pageBlockSectionItem>
+		          <apex:pageBlockSectionItem >
+						<span>Sales Call Status</span>
+		          		<apex:inputField value="{!itj.Sales_Call_Status__c}" />
+	       		</apex:pageBlockSectionItem>
+	       		<apex:pageBlockSectionItem >&nbsp;
+	       		</apex:pageBlockSectionItem>
+	       		<apex:pageBlockSectionItem >&nbsp;
+	       		</apex:pageBlockSectionItem>
+	              <apex:pageBlockSectionItem >
+	              		<span>Contact</span>
+		          		<apex:inputField value="{!itj.Contact__c}" />
+		          </apex:pageBlockSectionItem>
+		          <apex:pageBlockSectionItem >	          	
+		          		<span>Opportunity</span> 
+		          		<apex:outputField value="{!itj.Opportunity__c}" />
+		          </apex:pageBlockSectionItem>		     				
+            </apex:pageBlockSection>
+
+        </apex:pageBlock>
+    </apex:form>
+
+	<apex:outputPanel rendered="{!bolShowDebug}" id="dbg">
+	<div></div>
+	<div>DBG:</div>
+	<div></div>
+		<div>
+			<div>Opp Id: {!opportunityId} </div>
+			<div>Opp Vertical: {!itj.Opportunity__r.Vertical__c} </div>
+			<div>bolShowNewTitleLink: {!bolShowNewTitleLink}</div>
+			<div>bolShowNewCBILink: {!bolShowNewCBILink}</div>
+			<div>Current Record: {!itj} </div>
+			<div>Job Title: {!SelJobTitle} </div>
+			<div>CBI: {!selCBI} </div>
+			<div>CAUSE: {!availJTI} </div>
+			<div>Show Vertical: {!bolShowVertical} </div>
+			<div>lstJTOptions: {!lstJTOptions}</div>
+		</div>
+	</apex:outputPanel>
+</apex:page>

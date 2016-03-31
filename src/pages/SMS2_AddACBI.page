@@ -1,0 +1,29 @@
+<apex:page standardController="Critical_Business_Issue__c" extensions="SMS2_AddACBI"> 
+ 	<style>
+	 
+	 	.er{ color: red; font-weight: strong;}
+	 	
+    </style>
+	 
+ 	<apex:outputPanel id="er" styleClass="er">
+		<apex:messages />
+	</apex:outputPanel>
+ 	<apex:form >
+		<apex:pageBlock mode="edit">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save2}" value="Save" /> <apex:commandButton action="{!cancel2}" value="Cancel" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Add a Critical Business Issue" columns="2">
+                  <apex:pageBlockSectionItem >
+					<Strong>Critical business issue:</Strong><apex:inputText value="{!Critical_Business_Issue__c.Name}" maxlength="80" />
+	       		  </apex:pageBlockSectionItem> 
+	       		                  <apex:pageBlockSectionItem >
+					<Strong>Request Addition to Corporate List:</Strong><apex:inputCheckbox value="{!Critical_Business_Issue__c.Request_Addition_to_Corporate_List__c}" />
+	       		</apex:pageBlockSectionItem> 
+                 <apex:pageBlockSectionItem >
+					<Strong>Job Title:</Strong> {!JobName}
+	       		</apex:pageBlockSectionItem> 
+	       	</apex:pageBlockSection> 
+	     </apex:pageBlock>
+	 </apex:form>
+</apex:page>

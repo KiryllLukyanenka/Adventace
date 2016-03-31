@@ -1,0 +1,19 @@
+{
+    "username": "mark.populorumsms@adventace.com", 
+    "environment": "developer", 
+    "project_name": "mark.populorumsms@adventace.com", 
+    "workspace": "D:\\MavensmateProjects", 
+    "org_url": "", 
+    "namespace": "ADVSMS", 
+    "id": "BE7J7UT473TR2ERQV7E8XO7B1YBQH0KH", 
+    "metadata_container": "1dc50000000Gz2AAAS", 
+    "subscription": [
+        "ApexClass", 
+        "ApexComponent", 
+        "ApexPage", 
+        "ApexTrigger", 
+        "StaticResource", 
+        "CustomObject", 
+        "Profile"
+    ]
+}

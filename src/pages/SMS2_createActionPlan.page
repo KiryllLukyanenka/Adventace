@@ -1,0 +1,23 @@
+<apex:page standardController="Action_Plan__c" extensions="SMS2_createActionPlan">
+	<apex:form >
+ 		<apex:outputPanel id="er" styleClass="er">
+	 		<apex:messages />
+	 	</apex:outputPanel>
+        <apex:pageBlock mode="edit">
+            <apex:pageBlockButtons >
+               	<apex:commandbutton value="Save"  action="{!createActionPlan}" />
+				<apex:commandbutton value="Cancel" action="{!cancel2}" />	
+				
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Choose an action plan" columns="2"  id="cbi">
+                 <apex:pageBlockSectionItem >
+					Action Plans: <apex:inputField value="{!Action_Plan__c.Global_Action_Plans__c}" />
+				</apex:pageBlockSectionItem>
+				 <apex:pageBlockSectionItem >
+					Start date of plan: <apex:inputField value="{!Action_Plan__c.Start_date_of_plan__c}" />
+				</apex:pageBlockSectionItem>
+				
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+</apex:form>
+</apex:page>

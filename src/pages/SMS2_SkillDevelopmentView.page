@@ -1,0 +1,121 @@
+<apex:page standardController="TACE_Skill_Analyzer__c"  extensions="SMS2_skillDevelopmentViewExtension">
+<style>
+	body {
+		background-color: #f3f3ec;
+	} 
+	.hidden {
+	
+		display:none;
+	
+	}
+
+	.help {
+	
+	
+	}
+	
+	.hnd{
+		text-decoration: underline;
+		cursor:pointer;
+	}
+	
+</style>
+<script type="text/javascript">
+
+	function showHelp(id) {
+	
+		if(document.getElementById(id).className == 'hidden') {
+		
+			document.getElementById(id).className = 'help';
+			
+		} else {
+		
+			document.getElementById(id).className = 'hidden';
+		}
+	}
+ 
+</script> 
+<apex:form >
+<apex:pageBlock mode="edit">
+	<apex:pageBlockButtons >
+    	<apex:commandButton action="{!edit}" value="Edit" /> <apex:commandButton action="{!delete}" value="Delete" /> 
+    </apex:pageBlockButtons>
+
+	<apex:pageBlockSection title="Information" columns="2">
+		<apex:outputField value="{!TACE_Skill_Analyzer__c.Seller__c}" />
+		<apex:outputField value="{!TACE_Skill_Analyzer__c.Period__c}" />
+		<apex:outputField value="{!TACE_Skill_Analyzer__c.Period_Beginning__c}" />	
+		</apex:pageBlockSection>
+		 
+		<apex:pageBlockSection title="Help?" columns="1">
+	
+		<apex:outputText value="Click any skill name to see the definition and assessment criteria for that skill." />	 
+	</apex:pageBlockSection>
+	
+  	<apex:repeat value="{!Skills}" var="sk" id="db">	
+			
+			<apex:pageBlockSection onclick="showHelp('{!sk.ThisSkill.Id}');" title="{!sk.ThisSkill.Skill_Header_Label__c}" columns="2" collapsible="false">
+				 <apex:pageBlockSectionItem >
+					<apex:outputText value="{!sk.ThisSkill.Skill_Question__c}" />
+					<apex:outputText value="{!sk.ThisSkill.Skill_Score__c}" />
+				 </apex:pageBlockSectionItem>
+				  <apex:pageBlockSectionItem >
+				 	<apex:outputText value="{!sk.ThisSkill.Skill_Comment_Label__c}" />
+					<apex:outputText value="{!sk.ThisSkill.Skill_Comment__c}" />
+				</apex:pageBlockSectionItem>
+
+			</apex:pageBlockSection>	
+			<apex:pageBlockSection columns="1">
+				<apex:outputPanel id="thePanel">
+												<table id="{!sk.ThisSkill.Id}" class="hidden" width="100%" border="1" cellpadding="2" cellspacing="0" bordercolor="#000000">
+							<tr>
+							    <td colspan="3" bgcolor="#af8970"><div align="center">{!sk.ThisSkill.Skill_Help_Table_Header__c}</div></td>
+							</tr>
+							<tr>
+							  <td colspan="3" bgcolor="#af8970"><p align="center">Skill Definition</p>
+						      </td>
+  </tr>
+							<tr>
+							  <td height="29" colspan="3" bgcolor="#FFFFFF">&nbsp;{!sk.ThisSkill.Skill_Defeinition_n__c}</td>
+  </tr>
+							<tr>
+							  <td colspan="3" bgcolor="#af8970"><div align="center">Capability Assesment Criteria</div></td>
+  </tr>
+							<tr>
+							    <td width="33%" bgcolor="#af8970"><div align="center"><strong>1</strong></div></td>
+							    <td width="33%" bgcolor="#af8970"><div align="center"><strong>2</strong></div></td>
+							    <td width="33%" bgcolor="#af8970"><div align="center"><strong>3</strong></div></td>
+							</tr>
+							<tr>
+								<td width="33%" bgcolor="#af8970"><div align="center">{!sk.ThisSkill.Skill_Help_1_Header__c}</div></td>
+							    <td width="33%" bgcolor="#af8970"><div align="center">{!sk.ThisSkill.Skill_Help_2_Header__c}</div></td>
+							    <td width="33%" bgcolor="#af8970"><div align="center">{!sk.ThisSkill.Skill_Help_3_Header__c}</div></td>
+							</tr>
+							<tr>
+							    <td width="33%">
+							    	<strong><u>Characteristics</u></strong><br/>
+								    <apex:dataList value="{!sk.sh1}" var="s" id="sh1">
+										<apex:outputText value="{!s.Characteristic__c}"/>
+									</apex:dataList>							    </td>
+							    <td  width="33%">
+							    <strong><u>Characteristics</u></strong><br/>
+								    <apex:dataList value="{!sk.sh2}" var="s" id="sh2">
+										<apex:outputText value="{!s.Characteristic__c}"/>
+									</apex:dataList>							    </td>
+							    <td  width="33%">
+									<strong><u>Characteristics</u></strong><br/>
+								    <apex:dataList value="{!sk.sh3}" var="s" id="sh3">
+										<apex:outputText value="{!s.Characteristic__c}"/>
+									</apex:dataList>							   </td>
+						 </tr>
+					</table>
+						
+				</apex:outputPanel>	
+			</apex:pageBlockSection>
+										 						
+ 	</apex:repeat>
+ </apex:pageBlock>
+ 	</apex:form>  
+ 	
+ 	 <apex:relatedList list="Skill_PDP__r" />
+</apex:page>

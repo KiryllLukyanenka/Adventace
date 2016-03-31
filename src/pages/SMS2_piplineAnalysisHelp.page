@@ -1,0 +1,15 @@
+<apex:page sidebar="false" showheader="false"  >
+<!-- Begin Default Content REMOVE THIS -->
+<div><strong>Funnel Color Code and Calculations</strong></div>
+<p><strong>Funnel Color Code</strong></p>
+<ul>
+  <li>For All stages except B and NL: 100% or  greater = Green.  75%-99% = Yellow.  &lt;75% = Red. </li>
+  <li>B stage: We try to minimize B pipeline and  maximize A pipeline. Therefore, 100% or less = Green.  101%-125% = Yellow.  &gt; 125% = Red</li>
+  <li>For NL Stage: 0=Green.  1=Yellow (could be anomaly). &gt;1=Red (could  be a pattern and a problem)</li>
+</ul>
+<p><strong>Calculations</strong></p>
+<ul>
+  <li>#B Goal:</li>
+  <li>#A Goal = $A  Required / Average Deal Size</li>
+</ul>
+</apex:page>

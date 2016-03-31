@@ -1,0 +1,44 @@
+<apex:component access="global" controller="SMS2_email">
+    <apex:attribute name="oppId" description="asd" type="String" assignTo="{!impactedJobTitleId}"/>
+    <style>
+
+body{
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+
+}
+</style>
+<!-- Create The High Performance Sales Environment®  • ©2010 • Adventace® LLC • All rights reserved • Confidential -->
+<p>Dear {!impactedJobTitle.Contact__r.firstName}:</p>
+<p>I hope that you too felt our conversation was productive.  The purpose of this letter is to summarize both the key points from our discussion and the next step we agreed to take. </p>
+<p>Provided in the table below is my understanding of your issue, the causes we discussed, and the capabilities required by you to resolve it.</p>
+<p><table border="1" bordercolor="#000000" width="600px" cellpadding="5" cellspacing="0">
+    <tr>
+        <td colspan="2" align="center" style="background: #EDD681"><strong>Critical Business Issue: {!impactedJobTitle.Critical_Business_Issue__r.Name}</strong>
+        </td>
+    </tr> 
+    <tr>
+        <td align="center" style="background:  #EDD681"><strong>Causes</strong>
+        </td>
+        <td align="center" style="background:  #EDD681"><strong>
+        Capabilities Required</strong>
+        </td>
+    </tr>
+    <apex:repeat value="{!OQ}" var="opq" id="db3">  
+        <apex:repeat value="{!opq.Opportunity_Qualifiers__r}" var="oppQueStep" id="db2">    
+        <tr>
+            <td style="background:  #FCF8ED"><apex:outputtext value="{!oppQueStep.Cause_RTF__c}" escape="false" /></td>
+            <td style="background:  #FCF8ED"><apex:outputtext value="{!oppQueStep.Capabilities_RTF__c}" escape="false" /></td>
+        </tr>
+        </apex:repeat>
+    </apex:repeat>
+   
+</table>
+</p>
+<p>You believe that if you had these capabilities you would be able to solve your issue.  We also agreed that if I prove that we can provide these capabilities, you would introduce me to {!PowerPromoter.Contact__r.firstName} {!PowerPromoter.Contact__r.lastName}.  </p>
+<p>I will contact you to discuss the best way for us to prove our capabilities. I will call you regarding specifics.</p>
+<p>I look forward to our discussion.</p>
+<br/>
+<p>Best regards,<br/>
+{!NameOfSender}</p>
+ 
+</apex:component>

@@ -1,0 +1,69 @@
+<apex:page sidebar="false" showHeader="false"  >
+	<apex:stylesheet value="{!URLFOR($Resource.graphIt,'/graphIt/js-graph-it.css')}" />
+	<script src="{!URLFOR($Resource.graphIt,'/graphIt/js-graph-it.js')}" type="text/javascript" />
+<apex:stylesheet value="{!URLFOR($Resource.graphIt,'/graphIt/sf-homepage.css')}" />
+<script>
+
+	function onLoad(){
+		 
+		initPageObjects(); 
+	
+	}
+	
+</script>
+<body onload="onLoad();">
+<table class="main_table" style="height: 100%;">
+		<tr>
+			<td style="vertical-align: top; padding: 0px;">
+				<div id="mainCanvas" class="canvas" style="width: 100%; height: 500px;">	
+					<h1 id="title_block" class="block draggable" style="left: 30px; top: 30px;">js-graph.it</h1>
+					<h2 id="subtitle_block" class="block draggable" style="left: 130px; top: 130px;">a javascript library for graphs representation</h2>
+				
+					<div class="connector title_block subtitle_block left_left">
+						
+					</div>
+
+				<div class="connector subtitle_block description1_block down_start">
+				
+				</div>
+				
+				<p id="description1_block" class="block draggable" style="left: 100px; top: 250px;">
+					allows you
+				</p>
+				
+				<div class="connector description1_block description2_block horizontal">
+					
+				</div>		
+				
+				<div id="description2_block" class="block draggable" style="left: 350px; top: 300px; width: 100px;">
+					html elements
+					<div id="description2_out1" class="block dock_point" style="right: -2px; top: 20%;"></div>
+					<div id="description2_out2" class="block dock_point" style="right: -2px; top: 80%;"></div>
+				</div>
+				
+				<p id="no_js_code_block" class="block draggable" style="left: 580px; top: 200px; width: 200px;">
+					using css classes to declare blocks, connectors, labels...<br>
+					no JavaScript code required.
+				</p>
+				
+				<div class="connector description2_out1 no_js_code_block right_start">
+					
+				
+				</div>
+				
+				<p id="drag_and_drop_block" class="block draggable" style="left: 580px; top: 340px; width: 250px;">
+					you can drag and drop anything around!<br>
+					(but you already noticed, didn't you?)
+				</p>
+				
+				<div class="connector description2_out2 drag_and_drop_block right_start">
+				
+		
+				</div>
+				
+			</div>
+			</td>
+		</tr>
+	</table>
+</body>
+</apex:page>

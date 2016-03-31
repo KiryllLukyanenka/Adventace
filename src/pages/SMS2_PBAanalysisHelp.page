@@ -1,0 +1,12 @@
+<apex:page sidebar="false" showheader="false"  >
+<!-- Begin Default Content REMOVE THIS -->
+<div><strong>Pipeline Balance Algorithm Calculation</strong></div>
+<p><strong>Monthly NOC’s Required:</strong><br />
+  1.  Determine Annual NOC’s<br />
+  Annual NOC’s = Annual number  of deals to make quota/
+Probability  of a NOC becoming a win<br />
+2. Monthly NOC’s = Annual  NOC’s/12</p>
+<p><strong>$A Required at all Times:</strong><br />
+  1. Monthly Target = Annual Quota  / 12<br />
+2. $A Required at all Times = Monthly  Target * Length of sell cycle/Probability of Winning an A</p>
+</apex:page>

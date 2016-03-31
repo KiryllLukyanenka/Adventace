@@ -1,0 +1,84 @@
+<apex:page standardcontroller="TACE_Opportunity_Alayzer__c" showHeader="false" sidebar="false" standardStylesheets="false">
+	<table >
+		<tr>
+			<td>4/25</td>
+			<td>Conversation with Customer Service Manager, Susan Jones</td>
+		</tr>
+		<tr>
+			<td>4/25</td>
+			<td>Conversation with Collections Manager, John Douglas</td>
+		</tr>
+		<tr>
+			<td>4/30</td>
+			<td>Conversation with EVP Operations, Tim Pearson</td>
+		</tr>
+		<tr>
+			<td>5/03</td>
+			<td>Conversation with EVP Marketing, Jim Cricket</td>
+		</tr>
+		<tr>
+			<td>5/07</td>
+			<td>Conversation with CIO, Seymour Tech</td>
+		</tr>
+		<tr>
+			<td>5/14</td>
+			<td>Meet with committee to discuss needs</td>
+		</tr>
+		<tr>
+			<td>5/24</td>
+			<td>Conduct proof sessions for committee members</td>
+		</tr>
+		<tr>
+			<td>6/04</td>
+			<td>Conduct Risk Model Assessment</td>
+		</tr>
+		<tr>
+			<td>6/12</td>
+			<td>Review results of Risk Assessment</td>
+		</tr>
+		<tr>
+			<td>6/18</td>
+			<td>Agree on “Measuremets to Achieve”</td>
+		</tr>
+		<tr>
+			<td>6/22</td>
+			<td>Send “Standard Terms &amp; Conditions” to legal</td>
+		</tr>
+		<tr>
+			<td>6/27</td>
+			<td>Develop implementation plan</td>
+		</tr>
+		<tr>
+			<td>6/27</td>
+			<td>Gain approval of implementation plan</td>
+		</tr>
+		<tr>
+			<td>7/06</td>
+			<td>Develop value justification</td>
+		</tr>
+		<tr>
+			<td>7/13</td>
+			<td>Gain approval of value justification</td>
+		</tr>
+		<tr>
+			<td>7/13</td>
+			<td>Agree on “Standard Terms &amp; Conditions”</td>
+		</tr>
+		<tr>
+			<td>7/18</td>
+			<td>Visit TU HQ and meet our executives</td>
+		</tr>
+		<tr>
+			<td>7/23</td>
+			<td>Meet to discuss proposal</td>
+		</tr>
+		<tr>
+			<td>7/27</td>
+			<td>Gain approval and contract signing</td>
+		</tr>
+		<tr>
+			<td>8/06</td>
+			<td>Begin implementation</td>
+		</tr>
+	</table>
+</apex:page>

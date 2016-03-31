@@ -1,0 +1,9 @@
+<apex:page sidebar="false" showheader="false"  >
+<!-- Begin Default Content REMOVE THIS -->
+<h1>Impact Tree Help</h1>
+<p>For PC users, to take a screen shot of the Impact Tree and  paste into a document:</p>
+<ul>
+  <li>While still in this view of the Impact Tree,  press and hold your ‘Alt’ key and then the ‘Prt Sc’ key on the top row of your  keyboard</li>
+  <li>Open the document that you want to paste the  Impact Tree into, or a new Microsoft Word, PowerPoint, Excel, etc. &nbsp;Next,  right click your mouse and Paste the Impact Tree into the document. &nbsp;</li>
+</ul>
+</apex:page>

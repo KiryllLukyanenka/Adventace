@@ -1,0 +1,30 @@
+<apex:page showHeader="true" sidebar="true" controller="SMS2_Populate_OrgData">
+	<apex:form >
+		<apex:outputText style="margin-left: 20px" value="Congratulations! You have successfully installed the Adventace Sales Management System™."/>
+		<br/>
+		<br/>
+		<apex:outputText style="margin-left: 20px" value="Sample Data"/>
+		<br/>
+		<apex:outputText style="margin-left: 20px" value="If you wish to install sample data, you must:"/>
+		<br/>
+		<apex:outputText style="margin-left: 30px" value="•  Have admin rights"/>
+		<br/>
+		<apex:outputText style="margin-left: 30px" value="•  Temporarily disable data validation rules for Accounts, Contacts, and Opportunities"/>
+		<br/>
+		<apex:outputText style="margin-left: 30px" value="•  Temporarily turn off field settings for all required fields for Accounts, Contacts, and Opportunities"/>
+		<br/>
+		<apex:outputText style="margin-left: 30px"  value="•  Click on the button below to install the sample data"/>
+		<br/>
+		<apex:outputText style="margin-left: 30px"  value="•  Once complete, you may enable data validation rules and turn the required fields back on."/>
+		<br/>
+		<br/>
+		<apex:commandButton action="{!populate_data}" value="Populate Example Data"/>
+		<br/>
+		<br/>
+		<apex:outputText style="margin-left: 20px" value="Application Configuration"/>
+		<br/>
+		<apex:outputText style="margin-left: 20px" value="Click on the link below for configuration instructions:"/>
+		<br/>
+		<apex:outputLink style="margin-left: 30px" value="http://bit.ly/10irAgP">Configuration Instructions</apex:outputLink>
+	</apex:form>
+</apex:page>

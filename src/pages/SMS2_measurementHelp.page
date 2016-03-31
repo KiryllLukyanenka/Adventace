@@ -1,0 +1,48 @@
+<apex:page sidebar="false" showheader="false" >
+<table width="100%" border="1" cellpadding="4" cellspacing="0" bordercolor="#000000">
+  <tr>
+    <td width="27%" bgcolor="#EDD681"><p><strong>Skill</strong></p></td>
+    <td width="73%" bgcolor="#EDD681"><p><strong>Metrics</strong></p></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FBF7E6"><p>1. Account Planning</p></td>
+    <td bgcolor="#FBF7E6"><div>• Plan Vs. actual sales or profitability</div>
+      <div>• Progress on account position</div>
+      <div>• Progress on account relationship</div>
+      <div>• Progress on client satisfaction rating</div>
+      <div>(see Account  Success Metrics tab in AAPT)</div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#F8EFCD"><p>2. Opportunity  Identification</p></td>
+    <td bgcolor="#F8EFCD"><div>Opportunities identified in planning Vs. those converted to  A or &gt;</div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FBF7E6"><p>3. Prospecting</p></td>
+    <td bgcolor="#FBF7E6"><div>NOC’s</div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#F8EFCD"><p>4. Account  Penetration</p></td>
+    <td bgcolor="#F8EFCD"><div>NOC’s</div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FBF7E6"><p>5. Solution  Development</p></td>
+    <td bgcolor="#FBF7E6"><div>Conversions from C to (B + A)</div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#F8EFCD"><p>6.  Qualification-Sales Call</p></td>
+    <td bgcolor="#F8EFCD"><div>A/B Ratio</div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FBF7E6"><p>7. Sell Cycle  Control</p></td>
+    <td bgcolor="#FBF7E6"><div>Conversions from (C + B) to A</div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#F8EFCD"><p>8.  Qualification-Sell Cycle</p></td>
+    <td bgcolor="#F8EFCD">% of Action Plans completed for opportunities that have been  disqualif</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FBF7E6"><p>9. Negotiating  &amp; Closing</p></td>
+    <td bordercolor="#000000" bgcolor="#FBF7E6"><div>Conversions from NW to W</div></td>
+  </tr>
+</table>
+</apex:page>

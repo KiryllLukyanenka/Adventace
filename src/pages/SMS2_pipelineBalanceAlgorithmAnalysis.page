@@ -1,0 +1,59 @@
+<apex:page standardController="TACE_Pipeline_Balancing_Algorithm__c">
+	<style> 
+body {
+	background-color: #f3f3ec;
+} 
+
+.style1 {color: #FFFFFF;}
+</style>
+<div align="right"><a href="#" onclick="javascript:window.open('/apex/SMS2_PBAanalysisHelp','olcwhatispaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=650, height=320');">PBA Analysis Help</a>
+</div><br/>
+<table width="760px" border="1" cellspacing="0" cellpadding="2" bordercolor="#000000">
+  <tr>
+    <td width="20%" bgcolor="#5e82a3"><div align="center" class="style1">Metric</div></td>
+    <td width="20%" bgcolor="#5e82a3"><div align="center" class="style1"><strong>Goal</strong></div></td>
+    <td width="20%" bgcolor="#5e82a3"><div align="center" class="style1"><strong>Actual</strong></div></td>
+    <td width="20%" bgcolor="#5e82a3"><div align="center" class="style1"><strong>Gap Based on A Pipeline</strong></div></td>
+    <td width="20%" bgcolor="#5e82a3"><div align="center" class="style1"><strong>NOC's Next Month</strong></div></td>
+  </tr>
+  <tr>
+    <td width="20%" rowspan="2"><div align="center"><strong>$A</strong></div></td>
+    <td width="20%" rowspan="2"><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.A_Required__c}" />
+      
+    </div></td>
+    <td width="20%" rowspan="2"><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Stage_A_Actual__c}" /></div></td>
+    <td width="20%"><div align="center">&nbsp;
+           <apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.A_Gap__c}" />
+    </div></td>
+    <td width="20%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="20%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.A_Gap_Opportunities__c}" /></div></td>
+    <td width="20%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="20%" ><div align="center"><strong>&nbsp;
+       
+ NOC's   </strong></div></td>
+    <td width="20%"><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Monthly_NOCs_Required__c}" /></div></td>
+    <td width="20%"><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.NOC_this_month__c}" /></div></td>
+    <td width="20%"><div align="center">&nbsp;
+            <apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.NOCs_Required_for_A_Gap__c}" />
+    </div></td>
+    <td width="20%"><div align="center"><apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.NOCs_Required_for_Next_Month__c}" /> </div></td>
+  </tr>
+  <tr>
+    <td colspan="5"><div align="center">&nbsp;</div></td>
+  </tr>
+  <tr>
+    <td width="20%"><div align="center"><strong>&nbsp;A/B Ratio</strong></div></td>
+    <td width="20%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.A_B_Ratio__c}" /></div></td>
+    <td width="20%"><div align="center">&nbsp;
+    <apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.A_B_Ratio_Actual__c}" /></td>
+    <td width="20%">&nbsp;</td>
+    <td width="20%">&nbsp;</td>
+  </tr>
+</table>
+
+
+</apex:page>

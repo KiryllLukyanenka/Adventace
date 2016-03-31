@@ -1,0 +1,84 @@
+<apex:page standardController="TACE_Pipeline_Balancing_Algorithm__c">
+    <style> 
+body {
+    background-color: #f3f3ec;
+} 
+
+.style1 {color: #FFFFFF;}
+</style>
+<br/>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" bordercolor="#000000">
+  <tr>
+    <td bgcolor="#5e82a3"><div align="center" class="style1">&nbsp;</div></td>
+    <td colspan="2" bgcolor="#5e82a3"><div align="center" class="style1">
+      <div align="center"><strong>This Month</strong></div>
+    </div> </td>
+    <td colspan="2" bgcolor="#5e82a3"><div align="center" class="style1"><strong>Next Month</strong></div></td>
+    <td colspan="2" bgcolor="#5e82a3"><div align="center" class="style1"><strong>Third Month</strong></div></td>
+  </tr>
+  <tr>
+    <td width="14%" bgcolor="#5e82a3"><div align="center" class="style1"><strong>Stage</strong></div></td>
+    <td width="14%" bgcolor="#5e82a3"><div align="center" class="style1"><strong>$ Amount</strong></div></td>
+    <td width="14%" bgcolor="#5e82a3"><div align="center" class="style1"><strong>$ Expected</strong></div></td>
+    <td bgcolor="#5e82a3" width="14%"><div align="center" class="style1"><strong>$ Amount</strong></div></td>
+    <td bgcolor="#5e82a3" width="14%"><div align="center" class="style1"><strong>$ Expected</strong></div></td>
+    <td width="14%" bgcolor="#5e82a3"><div align="center" class="style1"><strong>$ Amount</strong></div></td>
+    <td width="14%" bgcolor="#5e82a3"><div align="center" class="style1"><strong>$ Expected</strong></div></td>
+  </tr>
+  <tr>
+
+    <td width="14%"><div align="center"><strong>A</strong></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Current_Month_A_Amount__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Current_Month_A_Expected__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Next_Month_A_Amount__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Next_Month_A_Expected__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Two_Months_Out_A_Amount__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Two_Months_Out_A_Expected__c}" /></div></td>
+
+  </tr>
+  <tr>
+    <td width="14%"><div align="center"><strong>A+</strong></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Current_Month_A_Plus_Amount__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Current_Month_A_Plus_Expected__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Next_Month_A_Plus_Amount__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Next_Month_A_Plus_Expected__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Two_Months_Out_A_Plus_Amount__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Two_Months_Out_A_Plus_Expected__c}" /></div></td>
+   
+  </tr>
+  <tr>
+    <td width="14%"><div align="center">&nbsp;<strong>NW</strong></div></td>
+   <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Current_Month_NW_Amount__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Current_Month_NW_Expected__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Next_Month_NW_Amount__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Next_Month_NW_Expected__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Two_Months_Out_NW_Amount__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Two_Months_Out_NW_Expected__c}" /></div></td>
+
+  </tr>
+  <tr>
+    <td width="14%"><div align="center"><strong>W</strong></div></td>
+   <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Current_Month_W_Amount__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Current_Month_W_Expected__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Next_Month_W_Amount__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Next_Month_W_Expected__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Two_Months_Out_W_Amount__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Two_Months_Out_W_Expected__c}" /></div></td>
+
+  </tr>
+  <tr>
+    <td width="14%"><div align="center"><strong>Total</strong></div></td>
+   <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Current_Month_Total_Amount__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Current_Month_Total_Expected__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Next_Month_Total_Amount__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Next_Month_Total_Expected__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Two_Months_Out_Total_Amount__c}" /></div></td>
+    <td width="14%"><div align="center">&nbsp;<apex:outputField value="{!TACE_Pipeline_Balancing_Algorithm__c.Two_Months_Out_Total_Expected__c}" /></div></td>
+
+  </tr>
+</table>
+<br/>
+
+    </td>
+
+</apex:page>

@@ -1,0 +1,867 @@
+<apex:page standardcontroller="TACE_Opportunity_Alayzer__c" showHeader="false" sidebar="false" standardStylesheets="false">
+	<title>TQOM Template</title>
+	<style>
+	* {
+	    font-family: Arial;
+	    font-size: 10pt;
+	}
+	</style>
+	<body lang="EN-US" style="tab-interval:.5in"> 
+
+	<div class="Section1"> 
+		<table  border="0" cellspacing="0" cellpadding="0" style='margin-left:.4pt;border-collapse:collapse'> 
+			<tr style='page-break-inside:avoid;height:17.9pt'> 
+				<td width="1088" colspan="5" style="width:652.5pt; border:solid windowtext 1.0pt; 
+				mso-border-alt:solid windowtext .75pt; background:#E5C130;padding:0in 0in 0in 0in; height:17.9pt"> 
+				<p align="center" style="margin-top:.2pt;margin-right:0in; margin-bottom:.2pt;margin-left:.05in;
+				text-align:center;mso-pagination:none; mso-layout-grid-align:none;text-autospace:none">
+				<b style='font-weight: bold'><span style='font-size:11.0pt;font-family: Arial;color:black'>TQOM Template</span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='height:17.9pt'> 
+				<td width="420" style='width:3.5in;border:solid windowtext 1.0pt;border-top: none;
+				mso-border-top-alt:solid windowtext .75pt; mso-border-alt:solid windowtext .75pt; 
+				background:#F3F3EC;padding:0in 0in 0in 0in;height:17.9pt'> 
+				<h2 align="center" style='font-size:11.0pt; font-family: Arial; margin-top:.2pt;
+				margin-right:0in;margin-bottom:.2pt;margin-left: .05in'>Action Items</h2> 
+				</td> 
+				<td width="124" style='width:74.15pt;border-top:none;border-left:none; 
+				border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; height:17.9pt'> 
+				<h2 align="center" style='font-size:11.0pt; font-family: Arial; margin-top:.2pt;margin-right:0in;
+				margin-bottom:.2pt;margin-left: .05in'>Stage</h2> 
+				</td> 
+				<td width="124" style='width:74.15pt;border-top:none;border-left:none; 
+				border-bottom:solid windowtext 1.0pt; border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; height:17.9pt'> 
+				<p align="center" style='margin-top:.2pt;margin-right:0in; margin-bottom:.2pt;margin-left:.05in;
+				text-align:center;mso-pagination:none; mso-layout-grid-align:none;text-autospace:none'>
+				<b style='font-weight: bold'><span style='font-size:11.0pt; font-family: Arial; color:black'>Date</span></b></p> 
+				</td> 
+				<td width="124" style='width:74.15pt;border-top:none;border-left:none; border-bottom:solid windowtext 1.0pt;
+				border-right:solid windowtext 1.0pt; mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; height:17.9pt'> 
+				<p align="center" style='margin-top:.2pt;margin-right:0in; margin-bottom:.2pt;margin-left:.05in;
+				text-align:center;mso-pagination:none; mso-layout-grid-align:none;text-autospace:none'>
+				<b style='font-weight: bold'><span style='font-size:11.0pt; font-family: Arial;color:black'>Action Completed?</span></b></p> 
+				</td> 
+				<td width="297" style='width:178.05pt;border-top:none;border-left:none; border-bottom:solid windowtext 1.0pt;
+				border-right:solid windowtext 1.0pt; mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; height:17.9pt'> 
+				<p align="center" style='margin-top:.2pt;margin-right:0in; margin-bottom:.2pt;margin-left:.05in;
+				text-align:center;mso-pagination:none; mso-layout-grid-align:none;text-autospace:none'>
+				<b style='font-weight: bold'><span style='font-size:11.0pt; font-family: Arial;color:black'>Internal Action</span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='height:50.15pt'> 
+				<td width="420" valign="top" style='width:3.5in;border:solid windowtext 1.0pt; border-top:none;
+				mso-border-top-alt:solid windowtext .75pt;mso-border-alt: solid windowtext .75pt;background:#F3F3EC;
+				padding:0in 0in 0in 0in;height: 50.15pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: .2pt;margin-left:.05in;mso-pagination:none;
+				mso-layout-grid-align:none; text-autospace:none'><b style='mso-bidi-font-weight:normal'>
+				<span style='mso-fareast-font-family:"Times New Roman";color:black'>Conversations with:<span style='mso-spacerun:yes'></span><span style='mso-tab-count:2'> </span></span></b></p> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: .2pt;margin-left:.05in;
+				mso-pagination:none;mso-layout-grid-align:none; text-autospace:none'><b style='mso-bidi-font-weight:normal'>
+				<span style='mso-fareast-font-family:"Times New Roman";color:black'><span style='mso-tab-count:1'></span>VP of Customer Service, Phil Smith</span></b></p> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: .2pt;margin-left:.05in;
+				mso-pagination:none;mso-layout-grid-align:none; text-autospace:none'><b style='mso-bidi-font-weight:normal'>
+				<span style='mso-fareast-font-family:"Times New Roman";color:black'><span style='mso-tab-count:1'></span>VP of Marketing, Susan Jones<span style='mso-tab-count:1'> </span></span></b></p> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: .2pt;margin-left:.05in;
+				mso-pagination:none;mso-layout-grid-align:none; text-autospace:none'><b style='mso-bidi-font-weight:normal'>
+				<span style='mso-fareast-font-family:"Times New Roman";color:black'><span style='mso-tab-count:1'></span>CIO, John Douglas<span style='mso-tab-count:1'></span></span></b></p> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: .2pt;margin-left:.05in;
+				mso-pagination:none;mso-layout-grid-align:none; text-autospace:none'><b style='mso-bidi-font-weight:normal'>
+				<span style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="124" style='width:74.15pt;border-top:none;border-left:none; border-bottom:solid windowtext 1.0pt;
+				border-right:solid windowtext 1.0pt; mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; height:50.15pt'> 
+				<p class="MsoNormal" align="center" style='margin-top:.2pt;margin-right:0in; margin-bottom:.2pt;margin-left:.05in;text-align:center;mso-pagination:none; mso-layout-grid-align:none;text-autospace:none'>
+				<b style='mso-bidi-font-weight: normal'><span style='mso-fareast-font-family:"Times New Roman";color:black'>Stage 2</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: none;
+				border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; mso-border-top-alt:solid windowtext .75pt;
+				mso-border-left-alt:solid windowtext .75pt; mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; height:50.15pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: .2pt;margin-left:.05in;
+				mso-pagination:none;mso-layout-grid-align:none; text-autospace:none'><b style='mso-bidi-font-weight:normal'>
+				<span style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: .2pt;margin-left:.05in;
+				mso-pagination:none;mso-layout-grid-align:none; text-autospace:none'><b style='mso-bidi-font-weight:normal'>
+				<span style='mso-fareast-font-family:"Times New Roman";color:black'>7 Sept.</span></b></p> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: .2pt;margin-left:.05in;
+				mso-pagination:none;mso-layout-grid-align:none; text-autospace:none'><b style='mso-bidi-font-weight:normal'>
+				<span style='mso-fareast-font-family:"Times New Roman";color:black'>8 Sept.</span></b></p> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: .2pt;margin-left:.05in;
+				mso-pagination:none;mso-layout-grid-align:none; text-autospace:none'><b style='mso-bidi-font-weight:normal'>
+				<span style='mso-fareast-font-family:"Times New Roman";color:black'>10 Sept.</span></b></p> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: .2pt;margin-left:.05in;
+				mso-pagination:none;mso-layout-grid-align:none; text-autospace:none'><b style='mso-bidi-font-weight:normal'>
+				<span style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: none;
+				border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; height:50.15pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: .2pt;margin-left:.05in;
+				mso-pagination:none;mso-layout-grid-align:none; text-autospace:none'><b style='mso-bidi-font-weight:normal'>
+				<span style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: .2pt;
+				margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; text-autospace:none'>
+				<b style='mso-bidi-font-weight:normal'>
+				<span style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="297" valign="top" style='width:178.05pt;border-top:none;border-left: none;
+				border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; height:50.15pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:#000066'></span></b></p> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:#000066'></span></b></p> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:#000066'></span></b></p> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>&nbsp;</span></b></p> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>&nbsp;</span></b></p> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>MORe-1</span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='page-break-inside:avoid;height:17.9pt'> 
+				<td width="420" valign="top" style='width:3.5in;border:solid windowtext 1.0pt; 
+				border-top:none;mso-border-top-alt:solid windowtext .75pt;mso-border-alt: 
+				solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in;height: 
+				17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Meet with 
+				committee to discuss needs</span></b></p> 
+				</td> 
+				<td width="124" rowspan="14" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" align="center" style='margin-top:.2pt;margin-right:0in; 
+				margin-bottom:.2pt;margin-left:0in;text-align:center;mso-pagination:none; 
+				mso-layout-grid-align:none;text-autospace:none'><b style='mso-bidi-font-weight: 
+				normal'><span style='mso-fareast-font-family:"Times New Roman";color:black'>Stage 
+				3</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>21 Sept.</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="297" valign="top" style='width:178.05pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='page-break-inside:avoid;height:17.9pt'> 
+				<td width="420" valign="top" style='width:3.5in;border:solid windowtext 1.0pt; 
+				border-top:none;mso-border-top-alt:solid windowtext .75pt;mso-border-alt: 
+				solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in;height: 
+				17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Conduct proof 
+				sessions for committee members<span style='mso-tab-count:1'></span></span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>23 Sept.</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="297" valign="top" style='width:178.05pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='page-break-inside:avoid;height:17.9pt'> 
+				<td width="420" valign="top" style='width:3.5in;border:solid windowtext 1.0pt; 
+				border-top:none;mso-border-top-alt:solid windowtext .75pt;mso-border-alt: 
+				solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in;height: 
+				17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Conduct 
+				operational impact assessment (fee based)</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>23 Sept.</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="297" valign="top" style='width:178.05pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='page-break-inside:avoid;height:17.9pt'> 
+				<td width="420" valign="top" style='width:3.5in;border:solid windowtext 1.0pt; 
+				border-top:none;mso-border-top-alt:solid windowtext .75pt;mso-border-alt: 
+				solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in;height: 
+				17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Send “Standard 
+				terms &amp; conditions” to<span style='mso-spacerun:yes'>  </span>legal</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>28 Sept.</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="297" valign="top" style='width:178.05pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Legal Review</span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='page-break-inside:avoid;height:17.9pt'> 
+				<td width="420" valign="top" style='width:3.5in;border:solid windowtext 1.0pt; 
+				border-top:none;mso-border-top-alt:solid windowtext .75pt;mso-border-alt: 
+				solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in;height: 
+				17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Review results 
+				of impact assessment</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>28 Sept.</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="297" valign="top" style='width:178.05pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='page-break-inside:avoid;height:17.9pt'> 
+				<td width="420" valign="top" style='width:3.5in;border:solid windowtext 1.0pt; 
+				border-top:none;mso-border-top-alt:solid windowtext .75pt;mso-border-alt: 
+				solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in;height: 
+				17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Agree on </span></b>
+				<b style='mso-bidi-font-weight:normal'><span style='mso-fareast-font-family: 
+				"Times New Roman";color:black'>Wilson</span></b>
+				<b style='mso-bidi-font-weight:normal'><span style='mso-fareast-font-family: 
+				"Times New Roman";color:black'>’s “measurements to achieve”</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>28 Sept.</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="297" valign="top" style='width:178.05pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='page-break-inside:avoid;height:17.9pt'> 
+				<td width="420" valign="top" style='width:3.5in;border:solid windowtext 1.0pt; 
+				border-top:none;mso-border-top-alt:solid windowtext .75pt;mso-border-alt: 
+				solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in;height: 
+				17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Develop design, 
+				procedures, implementation plan (fee based)</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>12 Oct.</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="297" valign="top" style='width:178.05pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Engineering 
+				Review</span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='page-break-inside:avoid;height:17.9pt'> 
+				<td width="420" valign="top" style='width:3.5in;border:solid windowtext 1.0pt; 
+				border-top:none;mso-border-top-alt:solid windowtext .75pt;mso-border-alt: 
+				solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in;height: 
+				17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Gain approval 
+				of design &amp; implementation plan</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>19 Oct.</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="297" valign="top" style='width:178.05pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='page-break-inside:avoid;height:17.9pt'> 
+				<td width="420" valign="top" style='width:3.5in;border:solid windowtext 1.0pt; 
+				border-top:none;mso-border-top-alt:solid windowtext .75pt;mso-border-alt: 
+				solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in;height: 
+				17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Develop value 
+				justification</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>26 Oct.</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="297" valign="top" style='width:178.05pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>MORe-2</span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='page-break-inside:avoid;height:17.9pt'> 
+				<td width="420" valign="top" style='width:3.5in;border:solid windowtext 1.0pt; 
+				border-top:none;mso-border-top-alt:solid windowtext .75pt;mso-border-alt: 
+				solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in;height: 
+				17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Gain approval 
+				of value justification</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>3 Nov</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="297" valign="top" style='width:178.05pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Prep for 
+				Corporate Visit</span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='page-break-inside:avoid;height:17.9pt'> 
+				<td width="420" valign="top" style='width:3.5in;border:solid windowtext 1.0pt; 
+				border-top:none;mso-border-top-alt:solid windowtext .75pt;mso-border-alt: 
+				solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in;height: 
+				17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Agree on 
+				“Standard terms &amp; conditions”</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>10 Nov.</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="297" valign="top" style='width:178.05pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='page-break-inside:avoid;height:17.9pt'> 
+				<td width="420" valign="top" style='width:3.5in;border:solid windowtext 1.0pt; 
+				border-top:none;mso-border-top-alt:solid windowtext .75pt;mso-border-alt: 
+				solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in;height: 
+				17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Tour network 
+				operations center (NOC) &amp; meet our executives</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>12 Nov.</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="297" valign="top" style='width:178.05pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='page-break-inside:avoid;height:17.9pt'> 
+				<td width="420" valign="top" style='width:3.5in;border:solid windowtext 1.0pt; 
+				border-top:none;mso-border-top-alt:solid windowtext .75pt;mso-border-alt: 
+				solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in;height: 
+				17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Bring test 
+				center online<span style='mso-tab-count:1'>          </span></span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>17 Nov.</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="297" valign="top" style='width:178.05pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>MORe-3</span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='page-break-inside:avoid;height:17.9pt'> 
+				<td width="420" valign="top" style='width:3.5in;border:solid windowtext 1.0pt; 
+				border-top:none;mso-border-top-alt:solid windowtext .75pt;mso-border-alt: 
+				solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in;height: 
+				17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Meet to discuss 
+				proposal</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>24 Nov.</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="297" valign="top" style='width:178.05pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='height:17.9pt'> 
+				<td width="420" valign="top" style='width:3.5in;border:solid windowtext 1.0pt; 
+				border-top:none;mso-border-top-alt:solid windowtext .75pt;mso-border-alt: 
+				solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in;height: 
+				17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Gain approval 
+				and contract signing<span style='mso-tab-count:1'>    </span></span></b></p> 
+				</td> 
+				<td width="124" style='width:74.15pt;border-top:none;border-left:none; 
+				border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" align="center" style='margin-top:.2pt;margin-right:0in; 
+				margin-bottom:.2pt;margin-left:.05in;text-align:center;mso-pagination:none; 
+				mso-layout-grid-align:none;text-autospace:none'><b style='mso-bidi-font-weight: 
+				normal'><span style='mso-fareast-font-family:"Times New Roman";color:black'>Stage 
+				4</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>2 Dec.</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="297" valign="top" style='width:178.05pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+			</tr> 
+			<tr style='mso-yfti-lastrow:yes;height:17.9pt'> 
+				<td width="420" valign="top" style='width:3.5in;border:solid windowtext 1.0pt; 
+				border-top:none;mso-border-top-alt:solid windowtext .75pt;mso-border-alt: 
+				solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in;height: 
+				17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>Begin 
+				implementation</span></b></p> 
+				</td> 
+				<td width="124" style='width:74.15pt;border-top:none;border-left:none; 
+				border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" align="center" style='margin-top:.2pt;margin-right:0in; 
+				margin-bottom:.2pt;margin-left:.05in;text-align:center;mso-pagination:none; 
+				mso-layout-grid-align:none;text-autospace:none'><b style='mso-bidi-font-weight: 
+				normal'><span style='mso-fareast-font-family:"Times New Roman";color:black'>Stage 
+				5</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:.05in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'>9 Dec.</span></b></p> 
+				</td> 
+				<td width="124" valign="top" style='width:74.15pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+				<td width="297" valign="top" style='width:178.05pt;border-top:none;border-left: 
+				none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt; 
+				mso-border-top-alt:solid windowtext .75pt;mso-border-left-alt:solid windowtext .75pt; 
+				mso-border-alt:solid windowtext .75pt;background:#F3F3EC;padding:0in 0in 0in 0in; 
+				height:17.9pt'> 
+				<p class="MsoNormal" style='margin-top:.2pt;margin-right:0in;margin-bottom: 
+				.2pt;margin-left:0in;mso-pagination:none;mso-layout-grid-align:none; 
+				text-autospace:none'><b style='mso-bidi-font-weight:normal'><span 
+				style='mso-fareast-font-family:"Times New Roman";color:black'></span></b></p> 
+				</td> 
+			</tr> 
+		</table> 
+
+		<p class="MsoNormal"></p> 
+
+	</div> 
+
+	</body> 
+
+</apex:page>

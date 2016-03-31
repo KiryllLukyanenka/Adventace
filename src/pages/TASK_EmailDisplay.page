@@ -1,0 +1,19 @@
+<apex:page standardController="Task" extensions="TaskHTMLEmailController">
+    <apex:form >
+<!--    
+        <apex:selectList id="newTask" label="Select the email to display" size="1" value="{!option}" required="true">
+            <apex:selectOptions value="{!options}">
+            </apex:selectOptions>
+            <apex:actionSupport event="onchange" reRender="emailDisplay">
+            </apex:actionSupport>
+        </apex:selectList>
+        <br/>
+        <hr size="3" noshade="true" color="#000000"/>
+        <br/>
+-->        
+        <apex:outputPanel Id="emailDisplay" layout="block" style="overflow:auto;width:auto;height:400px">
+            <apex:outputText escape="false" value="{!firstHTMLEmail}">
+            </apex:outputText>
+        </apex:outputPanel>
+       </apex:form>
+</apex:page>

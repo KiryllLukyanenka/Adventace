@@ -1,0 +1,40 @@
+<apex:page standardController="Opportunity">
+
+	<style>
+    .activeTab {background-color: #1797c0; color:white; background-image:none}
+     .inactiveTab {background-color: #cfeef8; color:black; background-image:none}
+       </style>
+	
+
+    <apex:tabPanel tabClass="activeTab" inactiveTabClass="inactiveTab" switchType="client"  selectedTab="tabdetails" id="AccountTabPanel">
+        <apex:tab label="Details" name="Opportunity"  id="tabdetails">
+             <apex:detail relatedList="true" title="true"/>
+        </apex:tab>
+        
+        <apex:tab label="Impacted Buyers" name="ImpactedBuyers" id="tabNoteAtts">
+
+         <apex:relatedList list="Opp_Impacted_Job_Titles__r" />
+      </apex:tab>
+     <apex:tab label="Sales Call Analysis" name="SalesCallAnaylysis" id="tabNoteAtt">
+
+         <apex:relatedList list="Sales_Call_Analysis__r" />
+      </apex:tab>
+      
+      <apex:tab label="Action Plan" name="ap" id="ap">
+
+         <apex:relatedList list="Action_Plans1__r" /> 
+      </apex:tab>
+      <apex:tab label="LOU's & Activities" name="ap6" id="ap6">
+         <apex:relatedList list="OpenActivities" />
+         <apex:relatedList list="ActivityHistories" />
+          
+      </apex:tab>
+        <apex:tab label="Opp. Mgt" name="ap4" id="ap2">
+
+         <apex:relatedList list="Opportunity_Assessment_Recommendations__r" />
+      </apex:tab>
+      
+     
+   </apex:tabPanel>
+
+</apex:page>

@@ -1,0 +1,20 @@
+<apex:page controller="CurrencyCheck_controller">
+
+    <table border="1">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Amount (Value)</td>
+            <td>Amount (Currency)</td>
+        </tr>
+        <apex:repeat value="{!CurrencyChecks}" var="oRec">
+            <tr>
+                <td>{!oRec.Id}</td>
+                <td>{!oRec.Name}</td>
+                <td>{!oRec.Amount__c}</td>
+                <td><apex:outputField value="{!oRec.Amount__c}"/></td>
+            </tr>
+        </apex:repeat>
+    </table>
+
+</apex:page>

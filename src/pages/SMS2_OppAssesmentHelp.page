@@ -1,0 +1,76 @@
+<apex:page controller="SMS2_HelpPages_Controller" action="{!showHelp_OppAssessment}">
+
+<!--
+* Edited by EBG/DCS on 20151215
+* Added controller and action to page so it redirects to the Opp Assessment website
+-->
+
+<p align="center"><strong>Help for “Opportunity Assessment &amp;  Recommendations”</strong></p>
+<p>Provided  below is a step-by-step approach to help you assess opportunities, organized by  the logical flow of a sales call.</p>
+<p><strong>Critical  Business Issues</strong><br />
+  CBIs are targets, objectives,  goals or problems by which someone is judged in the performance of their job  function.  A Critical Business Issue may  be:  </p>
+<ul>
+  <li>A business  objective (e.g., profit growth, inventory reduction, cash flow improvement) the  buyer needs help with </li>
+  <li>Something  imposed from the outside (e.g. regulation, deregulation) </li>
+  <li>An issue  recognized internally and currently causing someone emotional and/or monetary  impact (e.g. VP of Sales seeing sales slippage)</li>
+</ul>
+<p>A Critical Business Issue is <strong>NOT</strong>:</p>
+<ul>
+  <li>Multiple IT  environments</li>
+  <li>Poor Network  performance</li>
+  <li>Multiple  service providers</li>
+</ul>
+<p>Critical “Drill Down” questions  you can ask to see if the seller has truly identified the CBI: <br />
+    <em>What is the  impact on buyer’s business due to [CBI]?</em> <br />
+    <em>What bad  thing happens due to [CBI]?</em><br />
+  If you  feel the seller has answered these questions adequately, then he/she likely has  identified the true CBI </p>
+<p>&nbsp;</p>
+<p><strong>Capability Statements</strong><br />
+  We have found that the best  method of developing Capability Statements is to use the <em>Event - Target - Action (ETA) Method.</em></p>
+<ul>
+  <li>The Event: A  realistic situation, event, or plausible emergency occurs that would have  resulted in the “cause”</li>
+  <li>Target:  Someone in the buyer’s organization who would take action</li>
+  <li>Action: What  action should they take to address the cause? Be as specific and ‘visual’ as  possible.</li>
+</ul>
+<p>Example:</p>
+<table border="1" cellspacing="0" cellpadding="0" width="590">
+  <tr>
+    <td width="60" valign="top"><br />
+      Event </td>
+    <td width="530" valign="top"><p>When you    are looking to expand into a new geography, would it help if …</p></td>
+  </tr>
+  <tr>
+    <td width="60" valign="top"><p>Target</p></td>
+    <td width="530" valign="top"><p>Your    analysts…</p></td>
+  </tr>
+  <tr>
+    <td width="60" valign="top"><p>Action</p></td>
+    <td width="530" valign="top"><p>Could see    how prospects in the geography have performed with similar products from    other lenders, and could then test your underwriting strategies to determine    how to best manage risk without having to use expensive live tests?</p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p><strong>Identification of Impacted Individuals</strong><br />
+  Often times sellers will leave  this step out or not execute it properly.   While reviewing the Impact Tree, see if you believe the following  questions have been answered:</p>
+<ul>
+  <li><em>How does the  buyer’s (CBI) effect other people in their organization?</em> </li>
+  <li><em>How are  those people effected?</em> </li>
+  <li><em>Are other  peoples’ issues <u>causing</u> the buyer’s CBI?</em></li>
+</ul>
+<p><strong>Power Line</strong><br />
+  See if you believe the following  questions have been answered related to the Power Line: </p>
+<ul>
+  <li><em>Who else  would be involved in making the decision and how would it be made?</em> </li>
+  <li><em>Who are the  business decision makers?</em> </li>
+  <li><em>Who would be  the financial and  technical decision  makers?</em> </li>
+</ul>
+<p>If you believe the buyer is below  Power Line, and no attempt was made to gain access to power, get seller to go  back to the buyer and ask if they could meet.   IF access is denied, get seller to negotiate using undefined proof in  return for access:<br />
+  Example: Let  me suggest this. We’re willing to prove we can provide you with the  capabilities you need. But since we cannot meet with him/her, will you agree to  the following?  If we succeed in proving  that we can give you the capabilities you need, then in return will you  introduce me to him/her?</p>
+<p>If you believe the buyer is above  the Power Line, look for the following related to the Action Plan:</p>
+<ul>
+  <li><u>No</u> Action Plan, or a poorly set up Action Plan</li>
+  <li>Key steps  missing</li>
+  <li>Action Plans  show no activity for more than 30 days</li>
+  <li>Inappropriate  steps (giving away resources) </li>
+  <li>Action Plan  favors the buyer too much and does little to qualify the buyer</li>
+</ul>
+</apex:page>

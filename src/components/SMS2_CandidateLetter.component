@@ -1,0 +1,19 @@
+<apex:component access="global" controller="SMS2_email">
+<apex:attribute name="oppId" description="asd" type="String" assignTo="{!impactedJobTitleId}"/>
+<style>
+
+body{
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+
+}
+</style>
+<!-- Create The High Performance Sales Environment®  • ©2010 • Adventace® LLC • All rights reserved • Confidential -->
+<p>Dear {!impactedJobTitle.Contact__r.firstName}:</p>
+<p>I hope that you too feel that our conversation so far has been productive. The purpose of this letter is to summarize my understanding of our discussion and our agreed upon next step.</p>
+<p>You indicated that the issue affecting you is {!impactedJobTitle.Critical_Business_Issue__r.Name}</p>
+<p>We agreed have a follow-up meeting. I will contact you to coordinate a date and time.</p>
+<p>{!impactedJobTitle.Contact__r.firstName}, I look forward to speaking with you.</p>
+<br/>
+<p>Best regards,<br/>
+{!NameOfSender}</p>
+</apex:component>
